@@ -1,0 +1,44 @@
+[09-Jan-2024 17:06:24 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/mobiyolh/public_html/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/mobiyolh/public_html/config/cache.php on line 18
+[11-Jan-2024 21:28:21 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/mobiyolh/public_html/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/mobiyolh/public_html/config/cache.php on line 18
+[16-Jan-2024 17:39:12 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/mobiyolh/public_html/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/mobiyolh/public_html/config/cache.php on line 18
+[31-Jan-2024 17:36:06 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/mobiyolh/public_html/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/mobiyolh/public_html/config/cache.php on line 18
+[08-Feb-2024 22:29:33 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/mobiyolh/public_html/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/mobiyolh/public_html/config/cache.php on line 18
+[21-Mar-2024 15:03:17 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/mobiyolh/public_html/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/mobiyolh/public_html/config/cache.php on line 18
+[25-May-2024 17:48:05 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/mobiyolh/public_html/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/mobiyolh/public_html/config/cache.php on line 18
+[30-May-2024 10:41:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/mobiyolh/public_html/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/mobiyolh/public_html/config/cache.php on line 18
+[04-Jun-2024 11:48:29 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/mobiyolh/public_html/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/mobiyolh/public_html/config/cache.php on line 18
+[05-Jun-2024 09:50:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/mobiyolh/public_html/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/mobiyolh/public_html/config/cache.php on line 18
+[15-Aug-2024 18:07:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/mobiyolh/public_html/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/mobiyolh/public_html/config/cache.php on line 18
