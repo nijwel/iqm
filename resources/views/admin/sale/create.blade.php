@@ -140,6 +140,20 @@
                                     <button type="button" class="btn btn-sm btn-primary add">+</button>
                                 </td>
                             </tr>
+                            <tr>
+                                <td colspan="2"></td>
+                                <td class="text-right">Due</td>
+                                <td><input type="number" id="due" name="due" value="{{ $customer->due }}"
+                                        class="form-control" readonly value="0.00"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"></td>
+                                <td class="text-right"><strong>Grand Total</strong></td>
+                                <td><input type="number" id="g_total" name="g_total" class="form-control" readonly
+                                        value="0.00"></td>
+                                <td></td>
+                            </tr>
                         </tfoot>
                     </table>
 
@@ -212,12 +226,16 @@
         }
 
         function totalPrice() {
+
+            let due = parseFloat($('#due').val()) || 0;
             let total = 0;
             $(".item_total_price").each(function() {
                 const value = parseFloat($(this).val()) || 0;
                 total += value;
             });
             $("#total").val(total.toFixed(2));
+
+            $('#g_total').val((parseFloat($('#total').val()) + parseFloat(due)).toFixed(2));
         }
     </script>
 @endsection

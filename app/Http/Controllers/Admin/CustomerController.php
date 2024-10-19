@@ -3,23 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Admin\Customer;
 use App\Models\Admin\AmountPaid;
-use App\Models\Admin\Sale;
+use App\Models\Admin\Customer;
+use Illuminate\Http\Request;
 
-
-class CustomerController extends Controller
-{
+class CustomerController extends Controller {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         $data = Customer::latest()->get();
-        return view('admin.customer.index',compact('data'));
+        return view( 'admin.customer.index', compact( 'data' ) );
     }
 
     /**
@@ -27,8 +23,7 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
@@ -38,25 +33,24 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-                'name'          => 'required',
-                'phone'         => 'required|unique:customers|max:255',
-                'due'         => 'required',
-            ]);
+    public function store( Request $request ) {
+        $validated = $request->validate( [
+            'name'  => 'required',
+            'phone' => 'required|unique:customers|max:255',
+            'due'   => 'required',
+        ] );
 
-        $data              = new Customer();
-        $data->name        = $request->name;
-        $data->phone       = $request->phone;
-        $data->due         = $request->due;
+        $data        = new Customer();
+        $data->name  = $request->name;
+        $data->phone = $request->phone;
+        $data->due   = $request->due;
         $data->save();
 
-        $notification     = array(
-        'messege'         =>'Successfully Created !',
-        'alert-type'      =>'success'
-         );
-        return back()->with($notification);
+        $notification = [
+            'messege'    => 'Successfully Created !',
+            'alert-type' => 'success',
+        ];
+        return back()->with( $notification );
     }
 
     /**
@@ -65,8 +59,7 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show( $id ) {
         //
     }
 
@@ -76,10 +69,9 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        $data = Customer::find($id);
-        return view('admin.customer.ajax.edit',compact('data'));
+    public function edit( $id ) {
+        $data = Customer::find( $id );
+        return view( 'admin.customer.ajax.edit', compact( 'data' ) );
     }
 
     /**
@@ -89,24 +81,23 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        $validated = $request->validate([
-        'name'          => 'required',
-        'phone'         => 'required|unique:suppliers,s_phone,'.$id,
-        ]);
+    public function update( Request $request, $id ) {
+        $validated = $request->validate( [
+            'name'  => 'required',
+            'phone' => 'required|unique:suppliers,s_phone,' . $id,
+        ] );
 
-        $data                = Customer::find($id);
-        $data->name          = $request->name;
-        $data->phone         = $request->phone;
-        $data->email         = $request->email;
-        $data->due           = $request->due;
+        $data        = Customer::find( $id );
+        $data->name  = $request->name;
+        $data->phone = $request->phone;
+        $data->email = $request->email;
+        $data->due   = $request->due;
         $data->save();
-        $notification        = array(
-        'messege'            =>'Successfully Updated !',
-        'alert-type'         =>'success'
-         );
-        return back()->with($notification);
+        $notification = [
+            'messege'    => 'Successfully Updated !',
+            'alert-type' => 'success',
+        ];
+        return back()->with( $notification );
     }
 
     /**
@@ -115,22 +106,20 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {   
-        AmountPaid::where('customer_id',$id)->delete();
+    public function destroy( $id ) {
+        AmountPaid::where( 'customer_id', $id )->delete();
         // Sale::where('customer_id',$id)->delete();
-        $data         = Customer::find($id)->delete();
-        $notification = array(
-        'messege'     =>'Successfully Deleted !',
-        'alert-type'  =>'success'
-         );
-        return back()->with($notification);
+        $data         = Customer::find( $id )->delete();
+        $notification = [
+            'messege'    => 'Successfully Deleted !',
+            'alert-type' => 'success',
+        ];
+        return back()->with( $notification );
     }
 
-    public function getDue($cus_id)
-    {
-        $customer = Customer::where('id',$cus_id)->select('name','due')->first();
+    public function getDue( $cus_id ) {
+        $customer = Customer::where( 'id', $cus_id )->select( 'name', 'due', 'paid', 'created_at' )->first();
 
-        return response()->json($customer);
+        return response()->json( $customer );
     }
 }
